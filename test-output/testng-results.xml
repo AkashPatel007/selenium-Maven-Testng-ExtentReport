@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="ExampleModule2Suite" duration-ms="123959" started-at="2018-10-02T14:05:08Z" finished-at="2018-10-02T14:07:12Z">
+    <groups>
+    </groups>
+    <test name="ExampleModule2Test" duration-ms="123959" started-at="2018-10-02T14:05:08Z" finished-at="2018-10-02T14:07:12Z">
+      <class name="Example.Module2.NewTest9">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Example.Module2.NewTest9@14bf9759]" name="beforeTest" is-config="true" duration-ms="3458" started-at="2018-10-02T14:06:24Z" finished-at="2018-10-02T14:06:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Module2NewTest9()[pri:0, instance:Example.Module2.NewTest9@14bf9759]" name="Module2NewTest9" duration-ms="20029" started-at="2018-10-02T14:06:27Z" finished-at="2018-10-02T14:06:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Module2NewTest9 -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Example.Module2.NewTest9@14bf9759]" name="afterTest" is-config="true" duration-ms="720" started-at="2018-10-02T14:06:47Z" finished-at="2018-10-02T14:06:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- Example.Module2.NewTest9 -->
+      <class name="Example.Module2.NewTest8">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Example.Module2.NewTest8@3c0ecd4b]" name="beforeTest" is-config="true" duration-ms="3484" started-at="2018-10-02T14:05:59Z" finished-at="2018-10-02T14:06:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Module2NewTest8()[pri:0, instance:Example.Module2.NewTest8@3c0ecd4b]" name="Module2NewTest8" duration-ms="20221" started-at="2018-10-02T14:06:03Z" finished-at="2018-10-02T14:06:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Module2NewTest8 -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Example.Module2.NewTest8@3c0ecd4b]" name="afterTest" is-config="true" duration-ms="814" started-at="2018-10-02T14:06:23Z" finished-at="2018-10-02T14:06:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- Example.Module2.NewTest8 -->
+      <class name="Example.Module2.NewTest7">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Example.Module2.NewTest7@598067a5]" name="beforeTest" is-config="true" duration-ms="3554" started-at="2018-10-02T14:05:35Z" finished-at="2018-10-02T14:05:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Module2NewTest7()[pri:0, instance:Example.Module2.NewTest7@598067a5]" name="Module2NewTest7" duration-ms="20166" started-at="2018-10-02T14:05:39Z" finished-at="2018-10-02T14:05:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Module2NewTest7 -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Example.Module2.NewTest7@598067a5]" name="afterTest" is-config="true" duration-ms="772" started-at="2018-10-02T14:05:59Z" finished-at="2018-10-02T14:05:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- Example.Module2.NewTest7 -->
+      <class name="Example.Module2.NewTest6">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Example.Module2.NewTest6@31ef45e3]" name="beforeTest" is-config="true" duration-ms="4531" started-at="2018-10-02T14:05:08Z" finished-at="2018-10-02T14:05:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Module2NewTest6()[pri:0, instance:Example.Module2.NewTest6@31ef45e3]" name="Module2NewTest6" duration-ms="20916" started-at="2018-10-02T14:05:13Z" finished-at="2018-10-02T14:05:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Module2NewTest6 -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Example.Module2.NewTest6@31ef45e3]" name="afterTest" is-config="true" duration-ms="1015" started-at="2018-10-02T14:05:34Z" finished-at="2018-10-02T14:05:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- Example.Module2.NewTest6 -->
+      <class name="Example.Module2.NewTest10">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Example.Module2.NewTest10@5f341870]" name="beforeTest" is-config="true" duration-ms="3470" started-at="2018-10-02T14:06:48Z" finished-at="2018-10-02T14:06:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Module2NewTest10()[pri:0, instance:Example.Module2.NewTest10@5f341870]" name="Module2NewTest10" duration-ms="20082" started-at="2018-10-02T14:06:52Z" finished-at="2018-10-02T14:07:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Module2NewTest10 -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Example.Module2.NewTest10@5f341870]" name="afterTest" is-config="true" duration-ms="690" started-at="2018-10-02T14:07:12Z" finished-at="2018-10-02T14:07:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- Example.Module2.NewTest10 -->
+    </test> <!-- ExampleModule2Test -->
+  </suite> <!-- ExampleModule2Suite -->
+</testng-results>

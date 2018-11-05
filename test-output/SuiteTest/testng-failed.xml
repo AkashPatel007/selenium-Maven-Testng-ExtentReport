@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [SuiteTest]">
+  <test thread-count="5" name="TestNew(failed)">
+    <classes>
+      <class name="Example.Module1.NewTest1_Copy2">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="objectclosure"/>
+          <include name="TestFlow1"/>
+          <include name="ReportInitialise"/>
+        </methods>
+      </class> <!-- Example.Module1.NewTest1_Copy2 -->
+      <class name="Example.Module1.NewTest1">
+        <methods>
+          <include name="TestFlow1"/>
+          <include name="objectclosure"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="ReportInitialise"/>
+        </methods>
+      </class> <!-- Example.Module1.NewTest1 -->
+      <class name="Example.Module1.NewTest1_Copy1">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="objectclosure"/>
+          <include name="afterTest"/>
+          <include name="TestFlow1"/>
+          <include name="ReportInitialise"/>
+        </methods>
+      </class> <!-- Example.Module1.NewTest1_Copy1 -->
+    </classes>
+  </test> <!-- TestNew(failed) -->
+</suite> <!-- Failed suite [SuiteTest] -->

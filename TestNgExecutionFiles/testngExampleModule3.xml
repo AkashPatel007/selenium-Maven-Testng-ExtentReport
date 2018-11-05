@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ExampleModule3Suite">
+  <test name="ExampleModule3Suite3Test">
+    <classes>
+      <class name="Example.Module3.NewTest11"/>
+      <class name="Example.Module3.NewTest12"/>
+      <class name="Example.Module3.NewTest13"/>
+	  <class name="Example.Module3.NewTest14"/>
+      <class name="Example.Module3.NewTest15"/>
+     </classes>
+     <!-- <packages>
+            <package name="Example.Module1"/>
+            <package name="Example.Module2"/>
+            <package name="Example.Module3"/>
+            <package name="Example.Module4"/>  
+        </packages> -->  
+  </test>
+</suite>
