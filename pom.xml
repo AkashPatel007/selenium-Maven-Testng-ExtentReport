@@ -73,6 +73,9 @@
         <configuration>
           <suiteXmlFiles>
             <suiteXmlFile>TestNgExecutionFiles\testngExampleModule1.xml</suiteXmlFile>
+            <suiteXmlFile>TestNgExecutionFiles\testngExampleModule2.xml</suiteXmlFile>
+            <suiteXmlFile>TestNgExecutionFiles\testngExampleModule3.xml</suiteXmlFile>
+            <suiteXmlFile>TestNgExecutionFiles\testngExampleModule4.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>
