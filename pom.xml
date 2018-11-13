@@ -72,7 +72,7 @@
         <inherited>true</inherited>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testngExampleModule1.xml</suiteXmlFile>
+            <suiteXmlFile>TestNgExecutionFiles\testngExampleModule1.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>
