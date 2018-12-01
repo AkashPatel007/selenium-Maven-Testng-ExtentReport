@@ -4,11 +4,11 @@
   <test name="ExampleModule1Test">
     <classes>
       <class name="Example.Module1.NewTest1"/>
-      <class name="Example.Module1.NewTest2"/>
+ <!-- <class name="Example.Module1.NewTest2"/>
       <class name="Example.Module1.NewTest3"/>
 	  <class name="Example.Module1.NewTest4"/>
       <class name="Example.Module1.NewTest5"/>
-<!--  <class name="Example.Module1.NewTestPrior"/>  -->
+	  <class name="Example.Module1.NewTestPrior"/>  -->
     </classes>
      <!-- <packages>
             <package name="Example.Module1"/>
