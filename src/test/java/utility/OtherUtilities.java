@@ -11,6 +11,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -30,6 +31,7 @@ public class OtherUtilities {
 	public ExtentTest test;
 	Constants c= new Constants();
 	ExcelUtils EU = new ExcelUtils();
+	Logger log = Logger.getLogger("devpinoyLogger");
 	
 	
 	public void implicitwait(){
@@ -41,11 +43,13 @@ public class OtherUtilities {
 		    WebDriverWait wait = new WebDriverWait(driver, 5);
 		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		    test.log(LogStatus.PASS,"Wait for "+ElementName+" visibility Successfully");
+		    //log.debug("Wait for "+ElementName+" visibility Successfully");
 			}catch(Exception e)
 				{
 					test.log(LogStatus.FAIL,"Wait for "+ElementName+" visibility Unsuccessfully");
+					log.error(ExceptionUtils.getStackTrace(e));
 					test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
-					e.printStackTrace();
+					e.printStackTrace(); driver.close();
 				}
 		
 	}
@@ -54,11 +58,13 @@ public class OtherUtilities {
 		    WebDriverWait wait = new WebDriverWait(driver, 5);
 		    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
 		    test.log(LogStatus.PASS,"Wait for "+ElementName+" Non-visibility Successfully");
+		    //log.debug("Wait for "+ElementName+" Non-visibility Successfully" );
 			}catch(Exception e)
 				{
 					test.log(LogStatus.FAIL,"Wait for "+ElementName+" Non-visibility Unsuccessfully");
 					test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
-					e.printStackTrace();
+					log.error(ExceptionUtils.getStackTrace(e));
+					e.printStackTrace(); driver.close();
 				}
 	}
 	
@@ -67,11 +73,13 @@ public class OtherUtilities {
 		    WebDriverWait wait = new WebDriverWait(driver, 5);
 		    wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 		    test.log(LogStatus.PASS,"Wait for "+ElementName+" Clickability Successfully");
+		    //log.debug("Wait for "+ElementName+" Clickability Successfully" );
 			}catch(Exception e)
 				{
 					test.log(LogStatus.FAIL,"Wait for "+ElementName+" Clickability Unsuccessfully");
 					test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
-					e.printStackTrace();
+					log.error(ExceptionUtils.getStackTrace(e));
+					e.printStackTrace(); driver.close();
 				}
 	}
 	public void waitForElementNonClickability(WebDriver driver,ExtentTest test,String ElementName,String xpath){
@@ -79,11 +87,13 @@ public class OtherUtilities {
 		    WebDriverWait wait = new WebDriverWait(driver, 5);
 		    wait.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(By.xpath(xpath))));
 		    test.log(LogStatus.PASS,"Wait for "+ElementName+" visibility Successfully");
+		    //log.debug( "Wait for "+ElementName+" visibility Successfully");
 			}catch(Exception e)
 				{
 					test.log(LogStatus.FAIL,"Wait for "+ElementName+" visibility Unsuccessfully");
 					test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
-					e.printStackTrace();
+					log.error(ExceptionUtils.getStackTrace(e));
+					e.printStackTrace(); driver.close();
 				}
 	}
 	public String screenShot(WebDriver driver) throws IOException{
@@ -100,15 +110,19 @@ public class OtherUtilities {
 		FileInputStream fileInput = null;
 		try {
 			fileInput = new FileInputStream(file);
+			//log.debug( "input stream read the file successfully");
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			log.error(ExceptionUtils.getStackTrace(e));
+			e.printStackTrace(); driver.close();
 		}
 		Properties prop = new Properties();
 		//load properties file
 		try {
 			prop.load(fileInput);
+			//log.debug( "properties object loaded the file");
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error(ExceptionUtils.getStackTrace(e));
+			e.printStackTrace(); driver.close();
 		}
 		return prop;
 	}
@@ -132,15 +146,17 @@ public class OtherUtilities {
 	public void OpenApplication(WebDriver driver,ExtentTest test) throws Exception
 	{
 		try{
-			System.out.println("before url");
+			//System.out.println("before url");
 			driver.get(c.URL);
-			System.out.println("After url");
+			//System.out.println("After url");
 			test.log(LogStatus.PASS, "Application opened " + test.addScreenCapture(screenShot(driver)));
+			log.debug("Application opened successfuly");
 			}catch(Exception e)
 			{
 				test.log(LogStatus.FAIL, "Application failed to opened " + test.addScreenCapture(screenShot(driver)));
 				test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
-				e.printStackTrace();
+				log.error("Application open Unsuccessfuly. "+ExceptionUtils.getStackTrace(e));
+				e.printStackTrace(); driver.close();
 			}
 	}	
 	
@@ -150,11 +166,13 @@ public class OtherUtilities {
 		try{
 		Assert.assertTrue(title.contains(pageTitle));
 		test.log(LogStatus.PASS,"Page is : "+title+test.addScreenCapture(screenShot(driver)));
+		log.debug("Page is : "+title);
 		}catch(AssertionError e)
 			{
 				test.log(LogStatus.FAIL,"Page found is : "+title+"<br/>Page expected was : "+pageTitle+test.addScreenCapture(screenShot(driver)));
 				test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
-				e.printStackTrace();
+				log.error(ExceptionUtils.getStackTrace(e));
+				e.printStackTrace(); driver.close();
 			}
 	}
 	public void FindElement(WebDriver driver,ExtentTest test,WebElement myElement,String ElementName,String xpath) throws IOException
@@ -162,10 +180,12 @@ public class OtherUtilities {
 		try{
 			myElement=driver.findElement(By.xpath(xpath));
 			test.log(LogStatus.PASS,ElementName+" found successfully"+test.addScreenCapture(screenShot(driver)));
+			log.debug(ElementName+" found successfully" );
 			}catch(Exception e)
 			{
 				test.log(LogStatus.FAIL,ElementName+" found unsuccessfully"+test.addScreenCapture(screenShot(driver)));
-				e.printStackTrace();
+				log.error(ExceptionUtils.getStackTrace(e));
+				e.printStackTrace(); driver.close();
 			}
 	}
 	public void ClickElement(WebDriver driver,ExtentTest test,WebElement myElement,String ElementName,String xpath) throws IOException
@@ -174,10 +194,12 @@ public class OtherUtilities {
 			myElement=driver.findElement(By.xpath(xpath));
 			myElement.click();
 			test.log(LogStatus.PASS,ElementName+" clicked successfully"+test.addScreenCapture(screenShot(driver)));
+			log.debug(ElementName+" clicked successfully");
 			}catch(Exception e)
 			{
 				test.log(LogStatus.FAIL,ElementName+" clicked unsuccessfully"+test.addScreenCapture(screenShot(driver)));
-				e.printStackTrace();
+				log.error(ExceptionUtils.getStackTrace(e));
+				e.printStackTrace(); driver.close();
 			}
 	}
 	public void InputAtTextbox(WebDriver driver,ExtentTest test,WebElement myElement,String ElementName,String xpath,String InputValue) throws IOException
@@ -186,10 +208,12 @@ public class OtherUtilities {
 			myElement=driver.findElement(By.xpath(xpath));
 			myElement.sendKeys(InputValue);
 			test.log(LogStatus.PASS," Input Successful at "+ElementName+test.addScreenCapture(screenShot(driver)));
+			log.debug(" Input Successful at "+ElementName );
 			}catch(Exception e)
 			{
 				test.log(LogStatus.FAIL," Input Unsuccessful at "+ElementName+test.addScreenCapture(screenShot(driver)));
-				e.printStackTrace();
+				log.error(ExceptionUtils.getStackTrace(e));
+				e.printStackTrace(); driver.close();
 			}
 	}
 }
@@ -207,7 +231,7 @@ public class OtherUtilities {
 			{
 				test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
 				test.log(LogStatus.FAIL,"Browser failed to open");
-				e.printStackTrace();
+				e.printStackTrace(); driver.close();
 			}
 		}
 		else if(Browser.equalsIgnoreCase("firefox"))
@@ -223,7 +247,7 @@ public class OtherUtilities {
 			{
 				test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
 				test.log(LogStatus.FAIL,"Browser failed to open");
-				e.printStackTrace();
+				e.printStackTrace(); driver.close();
 			}
 		}
 		else if(Browser.equalsIgnoreCase("IE"))
@@ -237,7 +261,7 @@ public class OtherUtilities {
 			{
 				test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
 				test.log(LogStatus.FAIL,"Browser failed to open");
-				e.printStackTrace();
+				e.printStackTrace(); driver.close();
 			}
 		}
 		else{
