@@ -10,6 +10,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +18,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 /*import org.testng.annotations.AfterTest;
+import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
@@ -35,6 +38,7 @@ public class NewTest1 {
 	OtherUtilities O = new OtherUtilities();
 	ExcelUtils EU = new ExcelUtils();
 	ExtentFactory ef= new ExtentFactory();
+	//Logger log = Logger.getLogger("devpinoyLogger");
 	
 /*	@BeforeTest
 	public void ReportInitialise(){
@@ -53,26 +57,30 @@ public class NewTest1 {
 	}
 */
 	@BeforeClass
-	public void beforeTest() throws IOException {
+	@Parameters("Browser")
+	public void beforeTest(String Browser) throws IOException {
+		BasicConfigurator.configure();
 		extent= ef.getInstance();
 		extent.loadConfig(new File(c.RootFolderPath+"extent-config.xml"));
 		test=extent.startTest("NewTest1-"+O.CurrentTime(),"Example.Module1");
 		
-		if (c.Browser.equalsIgnoreCase("chrome"))
+		if (Browser.equalsIgnoreCase("chrome"))
 		{	
 			try{
 			System.setProperty("webdriver.chrome.driver", c.RootFolderPath+"Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			test.log(LogStatus.PASS, "Chrome Browser opened & maximized Successfully");
+			//log.info("chrome browser opened Successfully");
 			}catch(Exception e)
 			{
 				test.log(LogStatus.ERROR, ExceptionUtils.getStackTrace(e));
 				test.log(LogStatus.FAIL,"Browser failed to open");
+				//log.error(ExceptionUtils.getStackTrace(e));
 				e.printStackTrace();
 			}
 		}
-		else if(c.Browser.equalsIgnoreCase("firefox"))
+		else if(Browser.equalsIgnoreCase("firefox"))
 		{
 			try{
 			System.setProperty("webdriver.gecko.driver", c.RootFolderPath+"Drivers/geckodriver.exe");
@@ -88,7 +96,7 @@ public class NewTest1 {
 				e.printStackTrace();
 			}
 		}
-		else if(c.Browser.equalsIgnoreCase("IE"))
+		else if(Browser.equalsIgnoreCase("IE"))
 		{	
 			try{
 			System.setProperty("webdriver.ie.driver",c.RootFolderPath+"Drivers/IEDriverServer.exe");

@@ -24,6 +24,7 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;*/
+import org.testng.annotations.Parameters;
 
 
 public class NewTest3 {
@@ -51,13 +52,14 @@ public class NewTest3 {
 	}*/
 
 	@BeforeClass
-	public void beforeTest() throws IOException {
+	@Parameters("Browser")
+	public void beforeTest(String Browser) throws IOException {
 		extent= ef.getInstance();
 		extent.loadConfig(new File(c.RootFolderPath+"extent-config.xml"));
 		test=extent.startTest("NewTest3-"+O.CurrentTime(),"Example.Module1");
 		
 		
-		if (c.Browser.equalsIgnoreCase("chrome"))
+		if (Browser.equalsIgnoreCase("chrome"))
 		{	
 			try{
 			System.setProperty("webdriver.chrome.driver", c.RootFolderPath+"Drivers/chromedriver.exe");
@@ -71,7 +73,7 @@ public class NewTest3 {
 				e.printStackTrace();
 			}
 		}
-		else if(c.Browser.equalsIgnoreCase("firefox"))
+		else if(Browser.equalsIgnoreCase("firefox"))
 		{
 			try{
 			System.setProperty("webdriver.gecko.driver", c.RootFolderPath+"Drivers/geckodriver.exe");
@@ -87,7 +89,7 @@ public class NewTest3 {
 				e.printStackTrace();
 			}
 		}
-		else if(c.Browser.equalsIgnoreCase("IE"))
+		else if(Browser.equalsIgnoreCase("IE"))
 		{	
 			try{
 			System.setProperty("webdriver.ie.driver",c.RootFolderPath+"Drivers/IEDriverServer.exe");
