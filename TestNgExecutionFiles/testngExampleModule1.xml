@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ExampleModule1Suite">
 	<test name="ExampleModule1Test">
-		<parameter name="Browser" value="IE"></parameter>
+		<parameter name="Browser" value="chrome"></parameter>
 		<classes>
 			<class name="Example.Module1.NewTest1" />
 			<class name="Example.Module1.NewTest2" />
